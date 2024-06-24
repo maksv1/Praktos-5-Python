@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container my-4">
+    <h2 class="text-center mb-4">Авторизация</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="POST" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="public_key">Публичный ключ</label>
+                    <input type="text" class="form-control" id="public_key" name="public_key" required>
+                    <div class="invalid-feedback">
+                        Пожалуйста, введите публичный ключ.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                    <div class="invalid-feedback">
+                        Пожалуйста, введите пароль.
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Войти</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Bootstrap validation
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+{% endblock %}

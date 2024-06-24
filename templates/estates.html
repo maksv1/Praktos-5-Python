@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container my-4">
+    <h2 class="text-center mb-4">Доступные недвижимости</h2>
+    <div class="row">
+        {% for estate in estates %}
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ estate.name }}</h5>
+                        <p class="card-text">{{ estate.description }}</p>
+                        <p class="card-text"><strong>Цена:</strong> {{ estate.price }} wei</p>
+                        <a href="{{ estate.url }}" class="btn btn-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

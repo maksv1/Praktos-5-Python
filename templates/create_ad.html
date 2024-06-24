@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container my-4">
+    <h2 class="text-center mb-4">Создать объявление</h2>
+    <form method="POST" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label for="estate_id">ID недвижимости</label>
+            <input type="number" class="form-control" id="estate_id" name="estate_id" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите ID недвижимости.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="price">Цена недвижимости (в wei)</label>
+            <input type="number" class="form-control" id="price" name="price" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите цену недвижимости.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Создать</button>
+    </form>
+</div>
+
+<script>
+    // Bootstrap validation
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container my-4">
+    <h2 class="text-center mb-4">Добро пожаловать, {{ public_key }}!</h2>
+    <div class="list-group">
+        <a href="{{ url_for('create_estate_route', public_key=public_key) }}" class="list-group-item list-group-item-action">Создать недвижимость</a>
+        <a href="{{ url_for('create_ad_route', public_key=public_key) }}" class="list-group-item list-group-item-action">Создать объявление</a>
+        <a href="{{ url_for('change_estate_status_route', public_key=public_key) }}" class="list-group-item list-group-item-action">Изменить статус недвижимости</a>
+        <a href="{{ url_for('change_ad_status_route', public_key=public_key) }}" class="list-group-item list-group-item-action">Изменить статус объявления</a>
+        <a href="{{ url_for('buy_estate_route', public_key=public_key) }}" class="list-group-item list-group-item-action">Купить недвижимость</a>
+        <a href="{{ url_for('withdraw_funds_route', public_key=public_key) }}" class="list-group-item list-group-item-action">Вывести средства</a>
+        <a href="{{ url_for('get_estates_route') }}" class="list-group-item list-group-item-action">Получить информацию о недвижимости</a>
+        <a href="{{ url_for('get_balance_route', public_key=public_key) }}" class="list-group-item list-group-item-action">Получить баланс</a>
+        <a href="{{ url_for('index') }}" class="list-group-item list-group-item-action">Выйти</a>
+    </div>
+</div>
+{% endblock %}

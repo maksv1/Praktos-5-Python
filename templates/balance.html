@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="card text-center">
+        <div class="card-header">
+            Информация о балансе
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">Ваш баланс на смарт-контракте:</h2>
+            <p class="card-text display-4">{{ balance }}</p>
+        </div>
+        <div class="card-footer text-muted">
+            Обновлено: {{ update_time }}
+        </div>
+    </div>
+</div>
+{% endblock %}

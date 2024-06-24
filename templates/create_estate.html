@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container my-4">
+    <h2 class="text-center mb-4">Создать недвижимость</h2>
+    <form method="POST" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label for="size">Размер недвижимости (кв. м)</label>
+            <input type="number" class="form-control" id="size" name="size" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите размер недвижимости.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="photo">URL или хэш изображения недвижимости</label>
+            <input type="text" class="form-control" id="photo" name="photo" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите URL или хэш изображения.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="rooms">Количество комнат</label>
+            <input type="number" class="form-control" id="rooms" name="rooms" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите количество комнат.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="estate_type">Тип недвижимости</label>
+            <select class="form-control" id="estate_type" name="estate_type" required>
+                <option value="">Выберите тип недвижимости</option>
+                <option value="Дом">Дом</option>
+                <option value="Квартира">Квартира</option>
+                <option value="Мансарда">Мансарда</option>
+            </select>
+            <div class="invalid-feedback">
+                Пожалуйста, выберите тип недвижимости.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Создать</button>
+    </form>
+</div>
+
+<script>
+    // Bootstrap validation
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+{% endblock %}

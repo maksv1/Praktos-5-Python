@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container my-4">
+    <h2 class="text-center mb-4">Изменить статус недвижимости</h2>
+    <form method="POST" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label for="estate_id">ID недвижимости</label>
+            <input type="number" class="form-control" id="estate_id" name="estate_id" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите ID недвижимости.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="new_status">Новый статус</label>
+            <select class="form-control" id="new_status" name="new_status" required>
+                <option value="">Выберите статус</option>
+                <option value="0">Неактивный</option>
+                <option value="1">Активный</option>
+            </select>
+            <div class="invalid-feedback">
+                Пожалуйста, выберите новый статус.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Изменить</button>
+    </form>
+</div>
+
+<script>
+    // Bootstrap validation
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+{% endblock %}

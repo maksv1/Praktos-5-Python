@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Добро пожаловать в Смарт-контракт Недвижимость!</h1>
+        <p class="lead">Авторизуйтесь или зарегистрируйтесь для начала работы.</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg mx-2" href="{{ url_for('login') }}" role="button">Авторизация</a>
+        <a class="btn btn-secondary btn-lg mx-2" href="{{ url_for('register') }}" role="button">Регистрация</a>
+    </div>
+</div>
+{% endblock %}

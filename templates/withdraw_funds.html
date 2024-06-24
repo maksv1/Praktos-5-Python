@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container my-4">
+    <h2 class="text-center mb-4">Вывести средства</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="POST" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="amount">Сумма для вывода (в wei)</label>
+                    <input type="number" class="form-control" id="amount" name="amount" required>
+                    <div class="invalid-feedback">
+                        Пожалуйста, введите сумму для вывода.
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Вывести</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Bootstrap validation
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+{% endblock %}
